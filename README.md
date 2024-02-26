@@ -24,7 +24,7 @@ Tasks:
    * Drinks, and
    * Sodas.
 
-   Some menu items have different varieties, such as Pizza (Cheese, Vegetarian, and Pepperoni).
+   Some menu items have different varieties, such as "Pizza" ("Cheese", "Vegetarian", and "Pepperoni").
 
    Each menu item has a price. Prices vary by variety of menu item.
   
