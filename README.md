@@ -22,13 +22,14 @@ Tasks:
    * Snacks,
    * Meals,
    * Drinks, and
-   * Sodas
+   * Sodas.
+
    Some menu items have different varieties, such as Pizza (Cheese, Vegetarian, and Pepperoni).
 
    Each menu item has a price. Prices vary by variety of menu item.
   
 2. The customer is able to order as many items in any quantity as they want.
-3. The order summary displays a list of ordered items with price and quantity for each item.
+3. The order summary displays a list of items ordered with price and quantity for each item.
 4. The total cost of the order is the sum of the price of each item multiplied by the quantity ordered.
 
 ### Abstraction
@@ -44,7 +45,7 @@ Conditional: if (the customer wants to place an order)
              else
                 say goodbye and exit
 Loop: while ('place_order' is True)
-        set a counter variable to 0
+        set a counter variable to 1
         Loop: for (each menu category)
                 retrieve the menu category name from the menu
                 display counter and menu category name
@@ -68,7 +69,7 @@ Loop: while ('place_order' is True)
                                             tell the customer that his choice was invalid and that quantity was set to 1. If customer wants more they need to pick the menu item again.
                             increase counter variable by 1.
                      else
-                        tell the customer that they entered the wrong input and prompt them to pick a valid number from the numbered list of menu categories
+                        tell the customer that they picked an invalid menu category and prompt them to pick a valid menu category
         Loop: while (True)
                 Ask whether the customer wants to order more items
                 Conditional: if (yes)
@@ -83,7 +84,7 @@ Loop: while ('place_order' is True)
 
 **Event 2:** Display the customer's order.
 
-Once the `place_order` variable referenced in the pseudocode for Event 2 above is set to `False`, the program will exit the 'keep ordering' `while` loop. Then execute the following steps for this event.
+Once the `place_order` variable referenced in the pseudocode for Event 1 above is set to `False`, the program will exit the 'keep ordering' `while` loop. Then execute the following steps for this event.
 
 <ins>Pseudocode:</ins>
 ```
@@ -98,6 +99,6 @@ Loop: for (each item in order)
 Loop: for (each menu item in order)
     calculate the total cost of the order by summing over the product of the menu item price and the menu item quantity.
 ```
-
+---
 ## Footnotes
 [^1]: I learnd how to underline text in Markdown from Matt Cone Project (2024). *Hacks - Workarounds for things not officially supported by Markdown*, Markdown Guide. https://www.markdownguide.org/hacks/#:~:text=If%20your%20Markdown%20processor%20supports,these%20words%20will%20be%20underlined%20, accessed on 2/26/2024.
