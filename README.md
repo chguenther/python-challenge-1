@@ -66,7 +66,7 @@ Loop: while ('place_order' is True)
                             ask for a number corresponding to a menu item
                             Conditional: if (chosen menu item is valid)
                                             ask for quantity
-                                            store menu item name, price, and quantity as a dictionary in an order list 
+                                            store (compound) menu item name, price, and quantity as a dictionary in an "order" list 
                                          else
                                             set quantity to 1.
                                             tell the customer that his choice was invalid and that quantity was set to 1. If customer wants more they need to pick the menu item again.
