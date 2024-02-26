@@ -1,10 +1,10 @@
 # python-challenge-1: Order from a food menu
 ## Problem Statement
-As a customer of Variety Food Truck I want to order items from Variety Food Truck's menu. I want to be able to order multiple items items of any quantity. Once I finsh ordering I want to see a summary of my order containing the items I ordered, their respective price and the quantity of each item ordered. I also want to see the total cost of my order.
+As a customer of Variety Food Truck I want to order items from Variety Food Truck's menu. I want to be able to order multiple items of any quantity. Once I finish ordering I want to see a summary of my order containing the items I ordered, their respective price and the quantity of each item ordered. I also want to see the total cost of my order.
 
 It is done when
 * I can pick as many items from a menu in any quantity
-* Once I complete my order, I am presented with the items I ordered, their prices and the quantities I ordered for each item.
+* Once I complete my order, I am presented with the items I ordered, their prices and the quantity I ordered for each item.
 * I am presented with the total cost of my order. 
 
 ## Solution
@@ -16,8 +16,18 @@ Tasks:
 4. Display the total cost of the customer's order.
 
 ### Pattern recognition
-1. The menu needs to be kept somewhere so it is available for each order.
-2. The customer is able to order as many items in any quantity.
+1. The menu is given as a nested dictionary.
+
+   Menu items are grouped into the following categories:
+   * Snacks,
+   * Meals,
+   * Drinks, and
+   * Sodas
+   Some menu items have different varieties, such as Pizza (Cheese, Vegetarian, and Pepperoni).
+
+   Each menu item has a price. Prices vary by variety of menu item.
+  
+2. The customer is able to order as many items in any quantity as they want.
 3. The order summary displays a list of ordered items with price and quantity for each item.
 4. The total cost of the order is the sum of the price of each item multiplied by the quantity ordered.
 
@@ -25,21 +35,7 @@ Tasks:
 1. The customer cannot order items that are not on the menu.
 
 ### Sequence
-**Event 1:** Define and store the menu.
-
-  Menu items are grouped into the following menu categories:
-  * Snacks,
-  * Meals,
-  * Drinks, and
-  * Sodas
-
-  Some menu items have different varieties, such as Pizza (Cheese, Vegetarian, and Pepperoni).
-
-  Each menu item has a price.
-
-  Menu items are stored in a nested dictionary.
-
-**Event 2:** Allow the customer to place an order and store it.
+**Event 1:** Display available menu items and allow customer to place an order and store it.
 
 <ins>Pseudocode:</ins>[^1]
 ```
@@ -85,7 +81,7 @@ Loop: while ('place_order' is True)
                                 tell the customer that their input is invalid and that they need to enter 'yes' or 'no'
 ```
 
-**Event 3:** Display the customer's order.
+**Event 2:** Display the customer's order.
 
 Once the `place_order` variable referenced in the pseudocode for Event 2 above is set to `False`, the program will exit the 'keep ordering' `while` loop. Then execute the following steps for this event.
 
@@ -95,7 +91,7 @@ Loop: for (each item in order)
          List the item_name, its price, and the quantity ordered
 ```
 
-**Event 4:** Display the total cost of the order.
+**Event 3:** Display the total cost of the order.
 
 <ins>Pseudocode:</ins>
 ```
