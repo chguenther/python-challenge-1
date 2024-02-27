@@ -50,23 +50,29 @@ menu = {
     }
 }
 
-# 1. Set up order list. Order list will store a list of dictionaries for
-# menu item name, item price, and quantity ordered
-order = []
-
 # Launch the store and present a greeting to the customer
 print("Welcome to the variety food truck.")
 
-start = input("Type Y(es) if you are ready to order or N(o) if you don't want to order. ")
-match start.lower():
-    case 'y':
-        place_order = True
-    case 'n':
-        print("Thank you for visiting our food truck. Have a nice day and goodbye!")
-        exit()
-    case _:
-        print(f"{start} is not a valid input. Enter Y(es) or N(o) next time. Have a nice day and goodbye!")
-        exit()
+# 0. Find out whether the customer wants to order
+while True:
+    ready_to_order = input("Type Y(es) if you want to order or N(o) if you don't. ")
+    match ready_to_order.lower():
+        case 'y':
+            # They are ready to order. Break out of the loop and
+            # proceed with taking the order.
+            place_order = True
+            break
+        case 'n':
+            # Customer does not want to order. Exit the program.
+            print("Thank you for visiting our food truck. Have a nice day and goodbye!")
+            exit()
+        case _:
+            # Keep going until the customer enters a valid input.
+            print(f"{ready_to_order} is not a valid input.")
+
+# 1. Set up order list. Order list will store a list of dictionaries for
+# menu item name, item price, and quantity ordered
+order = []
 
 # Customers may want to order multiple items, so let's create a continuous
 # loop
@@ -148,8 +154,8 @@ while place_order:
                     if quantity.isdigit():
                         quantity = int(quantity)
                     else:
-                        print("You did not enter a number. Setting quantity to 1." +
-                              f"Please enter {menu_selection_name} again if you want more than one.")
+                        print("You did not enter a number. Setting quantity to 1. " +
+                              f"Please order {menu_selection_name} again if you want more than one.")
                         quantity = 1
 
                     # Add the item name, price, and quantity to the order list

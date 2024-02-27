@@ -36,15 +36,25 @@ Tasks:
 1. The customer cannot order items that are not on the menu.
 
 ### Sequence
-**Event 1:** Display available menu items and allow customer to place an order and store it.
+**Event 1:** Find out whether the customer wants to order.
 
 <ins>Pseudocode:</ins>[^1]
 ```
-Conditional: if (the customer wants to place an order)
-                set a variable called 'place_order' to True
-             else
-                say goodbye and exit
-Loop: while ('place_order' is True)
+Loop: while(true)
+        Ask whether customer is ready to order
+        Conditional: if 'yes'
+                        break out of the loop and proceed with taking the order in Event 2
+                     else if 'no'
+                        exit the program
+                     else
+                        Invalid input. Continue in this loop.
+```
+
+**Event 2:** Display available menu items and allow customer to place an order and store it.
+
+<ins>Pseudocode:</ins>
+```
+Loop: while (the customer wants to place an order)
         set a counter variable to 1
         Loop: for (each menu category)
                 retrieve the menu category name from the menu
@@ -63,28 +73,32 @@ Loop: while ('place_order' is True)
                             ask for a number corresponding to a menu item
                             Conditional: if (chosen menu item is valid)
                                             ask for quantity
-                                            store (compound) menu item name, price, and quantity as a dictionary in an "order" list 
+                                            store (compound) menu item name, price, and quantity
+                                            as a dictionary in an "order" list 
                                          else
                                             set quantity to 1.
-                                            tell the customer that his choice was invalid and that quantity was set to 1. If customer wants more they need to pick the menu item again.
+                                            tell the customer that his choice was invalid and
+                                            that quantity was set to 1. If customer wants more
+                                            they need to pick the menu item again.
                             increase counter variable by 1.
                      else
-                        tell the customer that they picked an invalid menu category and prompt them to pick a valid menu category
+                        tell the customer that they picked an invalid menu category and
+                        prompt them to pick a valid menu category
         Loop: while (True)
                 Ask whether the customer wants to order more items
                 Conditional: if (yes)
-                                set variable 'place_order' to True
-                                break out of the keep ordering while loop
+                                break out of this loop and allow the customer to enter the next
+                                menu item to their order
                              else if (no)
-                                set variable 'place_order' to False
-                                break out of the keep ordering while loop
+                                break out of this loop and discontinue taking the order
                             else
-                                tell the customer that their input is invalid and that they need to enter 'yes' or 'no'
+                                tell the customer that their input is invalid and continue to
+                                ask whether the customer wants to continue ordering.
 ```
 
-**Event 2:** Display the customer's order.
+**Event 3:** Display the customer's order.
 
-Once the `place_order` variable referenced in the pseudocode for Event 1 above is set to `False`, the program will exit the 'keep ordering' `while` loop. Then execute the following steps for this event.
+Once the customer has completed their order, display what they ordered with price and quantity to them.
 
 <ins>Pseudocode:</ins>
 ```
@@ -92,12 +106,13 @@ Loop: for (each item in order)
          List the item_name, its price, and the quantity ordered
 ```
 
-**Event 3:** Display the total cost of the order.
+**Event 4:** Display the total cost of the order.
 
 <ins>Pseudocode:</ins>
 ```
 Loop: for (each menu item in order)
-    calculate the total cost of the order by summing over the product of the menu item price and the menu item quantity.
+    calculate the total cost of the order by summing over the product of the menu item price and
+    the menu item quantity.
 ```
 ---
 ## Footnotes
