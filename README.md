@@ -98,7 +98,7 @@ Loop: while (the customer wants to place an order)
 
 **Event 3:** Display the customer's order.
 
-Once the `place_order` variable referenced in the pseudocode for Event 1 above is set to `False`, the program will exit the 'keep ordering' `while` loop. Then execute the following steps for this event.
+Once the customer has completed their order, display what they ordered with price and quantity to them.
 
 <ins>Pseudocode:</ins>
 ```
